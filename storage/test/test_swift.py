@@ -34,7 +34,7 @@ class MockSwiftStorage(SwiftStorage):
 class FakeSwiftStorage(SwiftStorage):
     def __init__(self, fail_checksum=False, connection=None, *args, **kwargs):
         super(FakeSwiftStorage, self).__init__(*args, **kwargs)
-        self._retry_count=kwargs.get("retry_count") or 5
+        self._retry_count = kwargs.get("retry_count") or 5
         self._connection = connection or FakeSwift(
             fail_checksum=fail_checksum, temp_url_key=kwargs.get("temp_url_key")
         )
@@ -171,7 +171,10 @@ def test_stream_read_write():
     swift.stream_write("somepath", io.BytesIO(b"some content here"))
     assert swift.exists("somepath")
     assert swift.get_content("somepath") == b"some content here"
-    assert b"".join([chr(c).encode("ascii") for c in swift.stream_read("somepath")]) == b"some content here"
+    assert (
+        b"".join([chr(c).encode("ascii") for c in swift.stream_read("somepath")])
+        == b"some content here"
+    )
 
 
 def test_stream_read_write_invalid_checksum():

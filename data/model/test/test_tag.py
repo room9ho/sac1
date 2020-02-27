@@ -335,7 +335,9 @@ def test_store_tag_manifest(get_storages, initialized_db):
 
     # Ensure we have the new-model expected rows.
     mapping_row = TagManifestToManifest.get(tag_manifest=tag_manifest)
-    manifest_bytes = Bytes.for_string_or_unicode(mapping_row.manifest.manifest_bytes).as_encoded_str()
+    manifest_bytes = Bytes.for_string_or_unicode(
+        mapping_row.manifest.manifest_bytes
+    ).as_encoded_str()
 
     assert mapping_row.manifest is not None
     assert manifest_bytes == manifest.bytes.as_encoded_str()

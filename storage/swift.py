@@ -124,8 +124,9 @@ class SwiftStorage(BaseStorage):
         # and will try utf-8 encode the result if it is a string.
         # The following assertion make sure that the content is either some bytes or
         # a file-like stream of bytes, for consistency across all storage implementations.
-        assert isinstance(content, bytes) or \
-            issubclass(type(content), (BufferedIOBase, GeneratorFile, ReadableToIterable))
+        assert isinstance(content, bytes) or issubclass(
+            type(content), (BufferedIOBase, GeneratorFile, ReadableToIterable)
+        )
 
         path = self._normalize_path(path)
         headers = headers or {}

@@ -26,7 +26,9 @@ def create_mirror_repo_robot(rules, repo_name="repo"):
     except model.InvalidRobotException:
         robot, _ = create_robot("robot", user)
 
-    repo = model.repository.create_repository("mirror", repo_name, None, repo_kind="image", visibility="public")
+    repo = model.repository.create_repository(
+        "mirror", repo_name, None, repo_kind="image", visibility="public"
+    )
     repo.save()
 
     rule = model.repo_mirror.create_mirroring_rule(repo, rules)
