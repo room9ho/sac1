@@ -92,7 +92,7 @@ class FilelikeStreamConcat(object):
         self._closed = True
 
     def read(self, size=READ_UNTIL_END):
-        buf = ""
+        buf = b""
         current_size = size
 
         while size == READ_UNTIL_END or len(buf) < size:
