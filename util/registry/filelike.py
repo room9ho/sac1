@@ -75,7 +75,7 @@ def wrap_with_handler(in_fp, handler):
 
 class FilelikeStreamConcat(object):
     """
-    A file-like object which concats all the file-like objects in the specified generator into a
+    A buffered (binary) file-like object which concats all the file-like objects in the specified generator into a
     single stream.
     """
 
