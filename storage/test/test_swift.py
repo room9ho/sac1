@@ -78,14 +78,12 @@ class FakeSwift(object):
     ):
         digest = None
         if not isinstance(content, bytes):
-            if hasattr(content, "read"):
-                content = content.read()
-                digest = hashlib.md5()
-                digest.update(content)
-                digest = digest.hexdigest()
-            elif isinstance(content, ReadableToIterable):
+            if isinstance(content, ReadableToIterable):
                 digest = content.get_md5sum()
-                content = content.content.read()
+                if isinstance(content.content, bytes):
+                    content = content.content
+                else:
+                    content = content.content.read()
             else:
                 raise ValueError("Only bytes or file-like objects yielding bytes are valid")
 
@@ -172,8 +170,7 @@ def test_stream_read_write():
     assert swift.exists("somepath")
     assert swift.get_content("somepath") == b"some content here"
     assert (
-        b"".join([chr(c).encode("ascii") for c in swift.stream_read("somepath")])
-        == b"some content here"
+        b"".join([c for c in swift.stream_read("somepath")]) == b"some content here"
     )
 
 
