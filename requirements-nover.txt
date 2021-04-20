@@ -17,7 +17,7 @@ Flask-Testing
 PyGithub
 aiowsgi
 alembic
-autobahn==0.9.3-3
+autobahn==20.12.3
 azure-common
 azure-storage-blob
 beautifulsoup4
