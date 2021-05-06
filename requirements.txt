@@ -55,7 +55,7 @@ ecdsa==0.13.3
 elasticsearch-dsl==7.0.0
 elasticsearch==7.0.4
 enum34==1.1.6
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 Flask-Login==0.4.1
 Flask-Mail==0.9.1
 Flask-Principal==0.4.0
