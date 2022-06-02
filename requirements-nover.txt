@@ -36,7 +36,7 @@ gevent
 gipc
 gunicorn
 hiredis
-html5lib==0.9999999 # pinned due to xhtml2pdf
+html5lib==0.99999999 # pinned due to xhtml2pdf
 httmock
 jsonpath-rw
 jsonschema
