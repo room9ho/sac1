@@ -71,7 +71,7 @@ pyyaml
 raven
 redis
 redlock
-reportlab==2.7
+reportlab==3.5.55
 requests-aws4auth
 semantic-version
 sqlalchemy
