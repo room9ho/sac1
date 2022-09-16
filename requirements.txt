@@ -90,7 +90,7 @@ jsonpointer==2.0
 jsonschema==3.0.2
 kafka-python==1.4.6
 keystoneauth1==3.17.1
-Mako==1.1.0
+Mako==1.2.2
 marisa-trie==0.7.5
 MarkupSafe==1.1.1
 maxminddb==1.4.1
